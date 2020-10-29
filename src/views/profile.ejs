@@ -1,0 +1,8 @@
+<%- layout('layouts/main.ejs') %>
+<h1>Bienvenido</h1>
+<div class="card card-body">
+    <h3><%= user.email %></h3>
+    <p>Contraseña: " <%= user.password %> "</p>
+    <p>ID: <%= user._id %></p>
+    <p>Versión: <%= user.__v %></p>
+</div>
