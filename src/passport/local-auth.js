@@ -19,7 +19,7 @@ passport.use('local-signup', new LocaStrategy({
 
     const user = await User.findOne({ email: email });
     if(user){
-        return done(null, false, req.flash('signupMessage','The email is alredy taken'));
+        return done(null, false, req.flash('signupMessage','El correo ya está registrado'));
     } else {
         const userUser = new User();
         userUser.email = email;
@@ -36,10 +36,10 @@ passport.use('local-signin', new LocaStrategy({
 }, async(req, email, password, done) => {
     const user = await User.findOne({ email: email });
     if(!user){
-        return done(null, false, req.flash('signinMessage', 'No user found'));
+        return done(null, false, req.flash('signinMessage', 'Usuario no encontrado'));
     }
     if(!user.comparePassword(password)){
-        return done(null, false, req.flash('signinMessage', 'Incorrect password'));
+        return done(null, false, req.flash('signinMessage', 'Contraseña incorrecta'));
     }
     done(null, user);
 }));
